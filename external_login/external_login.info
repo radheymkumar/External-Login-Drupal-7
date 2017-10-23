@@ -1,0 +1,4 @@
+name = External Login
+description = custom external login
+core = 7.x
+version = 7.1

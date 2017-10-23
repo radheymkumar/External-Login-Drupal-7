@@ -1,0 +1,24 @@
+<?php
+
+function external_login_form_alter(&$form, &$form_state, $form_id) {
+	//drupal_set_message($form_id);
+	if($form_id == 'user_login' || $form_id == 'user_login_block') {
+		$form['#validate'][] = 'external_login_validate';
+
+	}
+}
+
+function external_login_validate($form, &$form_state) {
+//	echo "<pre>";
+	$username = $form_state['input']['name'];
+	//$testname = drupal_substr(drupal_strtolower($username),0,5);
+	
+		if($username == 'radhe'){
+			user_external_login_register($username,'radhey');
+			return TRUE;
+		} else {
+			return FALSE;
+		}
+
+}
+
